@@ -1,8 +1,10 @@
+#pragma once
 
 namespace lab {
 
 class IStream {
-  virtual void Get() = 0;
+ public:
+  virtual int Get() = 0;
   virtual ~IStream() {}
 };
 
