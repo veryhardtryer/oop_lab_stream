@@ -17,8 +17,7 @@ constexpr const char* filepath = "f.txt";
 
 TEST(Stream, File) {
   try {
-    std::fstream out;
-    out.open(filepath);
+    std::fstream out(filepath, std::ios_base::out | std::ios_base::trunc);
     if(!out.is_open()) {
       throw std::runtime_error("Fail start testing");
     }
@@ -40,7 +39,6 @@ TEST(Stream, File) {
 
 TEST(Stream, Stdin) {
   std::cout << "Skipping" << std::endl;
-  return;
   try {
     StdinStream in;
     std::vector<int> input;
@@ -64,7 +62,7 @@ TEST(Stream, Queue) {
   constexpr const int kcount = 10000;
   try {
     std::vector<int> input(kcount);
-    srand(time(0));
+    srand(static_cast<unsigned int>(time(0)));
     for(size_t i = 0; i < kcount; ++i) {
       input[i] = rand() % kcount;
     }
