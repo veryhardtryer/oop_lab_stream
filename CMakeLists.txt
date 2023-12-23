@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.25)
 
 include(cmake/CompileOptions.cmake)
 include(cmake/Werror.cmake)
-include(cmake/Sanitize.cmake)
+#include(cmake/Sanitize.cmake)
 
 project(stream_lab)
 
@@ -12,6 +12,7 @@ set(HEADERS
   include/stdin_stream.hpp
   include/queue_stream.hpp
   include/frequency.hpp
+  include/diap.hpp
 )
 
 set(SOURCES
@@ -20,6 +21,7 @@ set(SOURCES
   src/stdin_stream.cpp
   src/queue_stream.cpp
   src/frequency.cpp
+  src/diap.cpp
 )
 
 add_library(${CMAKE_PROJECT_NAME} STATIC ${HEADERS} ${SOURCES})

@@ -8,6 +8,9 @@ namespace lab {
 
 class QueueStream final : public IStream {
  public:
+
+  QueueStream() {}
+
   template <typename Iterator>
   QueueStream(const Iterator& begin, const Iterator& end);
 
@@ -15,7 +18,7 @@ class QueueStream final : public IStream {
 
  private:
   std::vector<int> buff_;
-  size_t pos_;
+  size_t pos_ = 0;
 };
 
 template <typename Iterator>

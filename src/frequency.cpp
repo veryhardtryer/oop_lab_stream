@@ -5,6 +5,7 @@
 namespace lab {
 
 void Frequency::Calculate(IStream& stream) {
+  data_.clear();
   int value;
   while((value = stream.Get()) != std::numeric_limits<int>::min()) {
     if(value >= 0) {

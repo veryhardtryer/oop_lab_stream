@@ -8,6 +8,7 @@
 #include "stdin_stream.hpp"
 #include "queue_stream.hpp"
 #include "frequency.hpp"
+#include "diap.hpp"
 
 using namespace lab;
 
@@ -79,16 +80,29 @@ TEST(Stream, Queue) {
   }
 }
 
-TEST(Math, Frequncies) {
+void Calculate(Frequency& frequency) {
   try {
+    QueueStream queue;
+    frequency.Calculate(queue);
+
     FileStream in(filepath);
-    Frequency frequency; 
     frequency.Calculate(in);
-    std::cout << frequency << std::endl;
   } catch(std::exception& e) {
     std::cerr << e.what() << std::endl;
     ASSERT_TRUE(false);
   }
+}
+
+TEST(Math, Frequncies) {
+  Frequency f;
+  Calculate(f);
+  std::cout << f << std::endl;
+}
+
+TEST(Math, Diap) {
+  Diap d;
+  Calculate(d);
+  std::cout << d << std::endl;
 }
 
 int main(int argc, char** argv) {
