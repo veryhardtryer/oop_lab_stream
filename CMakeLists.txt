@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.25)
 
 include(cmake/CompileOptions.cmake)
-#include(cmake/Werror.cmake)
-#include(cmake/Sanitize.cmake)
+include(cmake/Werror.cmake)
+include(cmake/Sanitize.cmake)
 
 project(stream_lab)
 

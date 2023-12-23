@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 #include <limits> 
+#include <iostream>
 
 namespace lab {
 

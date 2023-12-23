@@ -5,10 +5,10 @@
 namespace lab {
 
 int QueueStream::Get() {
-  if(pos_ == 0) {
+  if(pos_ == buff_.size()) {
     return std::numeric_limits<int>::min();
   }
-  return buff_[pos_--];
+  return buff_[pos_++];
 }
 
 }

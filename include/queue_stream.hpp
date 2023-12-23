@@ -20,6 +20,6 @@ class QueueStream final : public IStream {
 
 template <typename Iterator>
 QueueStream::QueueStream(const Iterator& begin, const Iterator& end) : 
-  buff_(begin, end), pos_(buff_.size()) {}
+  buff_(begin, end), pos_(0) {}
 
 } 
