@@ -7,13 +7,14 @@
 #include "file_stream.hpp"
 #include "stdin_stream.hpp"
 #include "queue_stream.hpp"
+#include "frequency.hpp"
 
 using namespace lab;
 
+constexpr const int kfile_data_count = 500;
+constexpr const char* filepath = "f.txt";
 
 TEST(Stream, File) {
-  constexpr const int kfile_data_count = 40;
-  constexpr const char* filepath = "f.txt";
   try {
     std::fstream out;
     out.open(filepath);
@@ -72,6 +73,18 @@ TEST(Stream, Queue) {
       ASSERT_EQ(queue.Get(), input[i]);
     }
     ASSERT_EQ(std::numeric_limits<int>::min(), queue.Get());
+  } catch(std::exception& e) {
+    std::cerr << e.what() << std::endl;
+    ASSERT_TRUE(false);
+  }
+}
+
+TEST(Math, Frequncies) {
+  try {
+    FileStream in(filepath);
+    Frequency frequency; 
+    frequency.Calculate(in);
+    std::cout << frequency << std::endl;
   } catch(std::exception& e) {
     std::cerr << e.what() << std::endl;
     ASSERT_TRUE(false);

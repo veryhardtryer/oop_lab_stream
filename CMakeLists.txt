@@ -11,6 +11,7 @@ set(HEADERS
   include/file_stream.hpp
   include/stdin_stream.hpp
   include/queue_stream.hpp
+  include/frequency.hpp
 )
 
 set(SOURCES
@@ -18,6 +19,7 @@ set(SOURCES
   src/file_stream.cpp
   src/stdin_stream.cpp
   src/queue_stream.cpp
+  src/frequency.cpp
 )
 
 add_library(${CMAKE_PROJECT_NAME} STATIC ${HEADERS} ${SOURCES})
